@@ -1,4 +1,10 @@
 version: "3.2"
+
+networks:
+  myappnetwork:
+    name: myappnetwork
+
+
 services:
 
   sql-server-db:
@@ -9,8 +15,26 @@ services:
     environment:
       SA_PASSWORD: "hardPass123"
       ACCEPT_EULA: "Y"
+    networks:
+      - myappnetwork    
+   
+  db-loader:
+    container_name: db-loader
+    image:  mcr.microsoft.com/mssql/server
+    ports:
+      - "8000:8000"
+    networks:
+      - myappnetwork
     volumes:
       - ./SQL/dbSetup.sql:/var/sql/createDB.sql
-    # command: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P hardPass123 -i /var/sql/createDB.sql
-   
+    command: sh -c 'sleep 20 && /opt/mssql-tools/bin/sqlcmd -S host.docker.internal,1433 -U sa -P hardPass123 -i /var/sql/createDB.sql'
   
+  web-host:
+    container_name: web-host
+    image:  php:7.2-apache
+    ports:
+      - "8080:80"
+    networks:
+      - myappnetwork
+    volumes:
+      - ./webapp/:/var/www/html/
