@@ -9,6 +9,7 @@ services:
     container_name: php-web-app
     volumes:
       - ./webapp:/var/www/html
+      - ./images:/var/www/html/images
     ports:
       - "8080:80"
     depends_on:
@@ -24,8 +25,8 @@ services:
     image: mysql:5.7
     container_name: mysql-db
     volumes:
-      - ./mysql-data:/var/lib/mysql
       - ./SQL:/docker-entrypoint-initdb.d
+      - ./mysql-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - MYSQL_DATABASE=CINEMA
