@@ -1,59 +1,137 @@
-:root {
-          --color-1: #252525;
-          --color-2: #FF0000;
-          --color-3: #AF0404;
-          --color-4: #d1d1d1;
-        }
-        
-
-body{
-          background-color: var(--color-1);
-          color: var(--color-3);
-          margin-left: auto;
-          margin-right: auto;
-}
-
-nav {
-          background-color: var(--color-3);
-          color: var(--color-4);
-          margin-top: 1em;
-}
-
-.navElements {
-          display: flex;
-          flex-direction: row;
-          font-weight: bold;
-          font-size: 1.5em;
-          margin-left: 10%;
-          margin-right: 10%;
-}
-
-.navElement {
-          flex-grow: 1;
-          text-align: center;
-          transition: all .5s ease;
-          color: var(--color-4);
-          font-family:'Montserrat', sans-serif;
-          text-transform: uppercase;
-          text-align: center;
-          line-height: 1;
-          background-color : transparent;
-          padding: 10px;
-          outline: none;
-          border-radius: 6px;
-          
-}
-
-
-
-.navElement:hover{
-          color: var(--color-3);
-          background-color: var(--color-4);
+body {
+  background: linear-gradient(to bottom, #111111 0%, #202020 50%, #111111 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: #cecece;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
-          margin-bottom: 0.3em;
+  padding: 15px;
+  text-align: center;
+  background: linear-gradient(to bottom, #d32f2f, #911515);
+  transition: background 0.5s ease;
+}
+
+h1 {
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+  flex: 1;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.movie-card {
+  background-color: #555;
+  color: #cecece;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 15px;
+  width: 750px;
+}
+
+.movie-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.movie-description {
+  font-size: 14px;
+  margin-bottom: 15px;
+  height: 75px;
+}
+
+footer {
+  background: linear-gradient(to bottom, #911515,  #d32f2f);
+  transition: background 0.5s ease;
+  padding: 15px;
+  text-align: center;
+}
+
+.custom-button {
+background-color: #d32f2f;
+color: #fff;
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.custom-button:hover {
+background-color: #ff5252;
+}
+
+.movie-image {
+  width: 750px;
+  height: 750px;
+  object-fit: cover; 
+
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+}
+
+a:active,
+a:focus {
+  outline: none;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #d32f2f;
+}
+
+form {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }
